@@ -21,8 +21,8 @@ namespace AndroidCodes
 
         private void Window_Load(object sender, EventArgs e)
         {
-            mHttpMethodSelector.SelectedIndex = 0;
-            mTabControl_SelectedIndexChanged(null, null);
+            mSplitContainer1.SplitterDistance = (mSplitContainer1.Width - mSplitContainer1.SplitterWidth) / 2;
+
         }
 
         private void Window_SizeChanged(object sender, EventArgs e)
@@ -33,9 +33,6 @@ namespace AndroidCodes
                 {
                     case 0:
                         mSplitContainer1.SplitterDistance = (mSplitContainer1.Width - mSplitContainer1.SplitterWidth) / 2;
-                        break;
-                    case 1:
-                        mSplitContainer2.SplitterDistance = (mSplitContainer2.Width - mSplitContainer2.SplitterWidth) / 2;
                         break;
                 }
             }
@@ -166,59 +163,5 @@ namespace AndroidCodes
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                switch (mHttpMethodSelector.SelectedIndex)
-                {
-                    case 0:
-                        mTextBoxRecv.Text = WebHelper.HttpPost(mTextBoxUrl.Text, mTextBoxSend.Text);
-                        break;
-                    case 1:
-                        mTextBoxRecv.Text = WebHelper.HttpGet(mTextBoxUrl.Text);
-                        break;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.StackTrace, ex.Message);
-            }
-        }
-
-        private void mHttpMethodSelector_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch (mHttpMethodSelector.SelectedIndex)
-            {
-                case 0:
-                    mTextBoxSend.Enabled = true;
-                    break;
-                case 1:
-                    mTextBoxSend.Enabled = false;
-                    break;
-            }
-        }
-
-        private void mTabControl_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            mSplitContainer1.SplitterDistance = (mSplitContainer1.Width - mSplitContainer1.SplitterWidth) / 2;
-            mSplitContainer2.SplitterDistance = (mSplitContainer2.Width - mSplitContainer2.SplitterWidth) / 2;
-        }
-
-        private void mTextBoxSend_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.A)
-            {
-                ((TextBox)sender).SelectAll();
-            }
-        }
-
-        private void mTextBoxRecv_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.A)
-            {
-                ((TextBox)sender).SelectAll();
-            }
-        }
     }
 }

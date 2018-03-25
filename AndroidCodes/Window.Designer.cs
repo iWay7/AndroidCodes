@@ -36,24 +36,12 @@
             this.mGenFragmentCodeBtn = new System.Windows.Forms.Button();
             this.mTabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.mHttpMethodSelector = new System.Windows.Forms.ComboBox();
-            this.mSplitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.mTextBoxSend = new System.Windows.Forms.TextBox();
-            this.mTextBoxRecv = new System.Windows.Forms.TextBox();
-            this.mTextBoxUrl = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mSplitContainer1)).BeginInit();
             this.mSplitContainer1.Panel1.SuspendLayout();
             this.mSplitContainer1.Panel2.SuspendLayout();
             this.mSplitContainer1.SuspendLayout();
             this.mTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mSplitContainer2)).BeginInit();
-            this.mSplitContainer2.Panel1.SuspendLayout();
-            this.mSplitContainer2.Panel2.SuspendLayout();
-            this.mSplitContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
             // mSplitContainer1
@@ -139,13 +127,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mTabControl.Controls.Add(this.tabPage1);
-            this.mTabControl.Controls.Add(this.tabPage2);
             this.mTabControl.Location = new System.Drawing.Point(12, 12);
             this.mTabControl.Name = "mTabControl";
             this.mTabControl.SelectedIndex = 0;
             this.mTabControl.Size = new System.Drawing.Size(1240, 657);
             this.mTabControl.TabIndex = 4;
-            this.mTabControl.SelectedIndexChanged += new System.EventHandler(this.mTabControl_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -158,104 +144,8 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1232, 631);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "FindViews";
+            this.tabPage1.Text = "Generate FindViews";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.mHttpMethodSelector);
-            this.tabPage2.Controls.Add(this.mSplitContainer2);
-            this.tabPage2.Controls.Add(this.mTextBoxUrl);
-            this.tabPage2.Controls.Add(this.button4);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1232, 631);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Web Debugger";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // mHttpMethodSelector
-            // 
-            this.mHttpMethodSelector.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.mHttpMethodSelector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.mHttpMethodSelector.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.mHttpMethodSelector.FormattingEnabled = true;
-            this.mHttpMethodSelector.IntegralHeight = false;
-            this.mHttpMethodSelector.ItemHeight = 13;
-            this.mHttpMethodSelector.Items.AddRange(new object[] {
-            "POST",
-            "GET"});
-            this.mHttpMethodSelector.Location = new System.Drawing.Point(6, 594);
-            this.mHttpMethodSelector.Name = "mHttpMethodSelector";
-            this.mHttpMethodSelector.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.mHttpMethodSelector.Size = new System.Drawing.Size(85, 21);
-            this.mHttpMethodSelector.TabIndex = 1;
-            this.mHttpMethodSelector.SelectedIndexChanged += new System.EventHandler(this.mHttpMethodSelector_SelectedIndexChanged);
-            // 
-            // mSplitContainer2
-            // 
-            this.mSplitContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.mSplitContainer2.IsSplitterFixed = true;
-            this.mSplitContainer2.Location = new System.Drawing.Point(6, 6);
-            this.mSplitContainer2.Name = "mSplitContainer2";
-            // 
-            // mSplitContainer2.Panel1
-            // 
-            this.mSplitContainer2.Panel1.Controls.Add(this.mTextBoxSend);
-            // 
-            // mSplitContainer2.Panel2
-            // 
-            this.mSplitContainer2.Panel2.Controls.Add(this.mTextBoxRecv);
-            this.mSplitContainer2.Size = new System.Drawing.Size(1220, 582);
-            this.mSplitContainer2.SplitterDistance = 405;
-            this.mSplitContainer2.TabIndex = 3;
-            // 
-            // mTextBoxSend
-            // 
-            this.mTextBoxSend.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mTextBoxSend.Location = new System.Drawing.Point(0, 0);
-            this.mTextBoxSend.MaxLength = 0;
-            this.mTextBoxSend.Multiline = true;
-            this.mTextBoxSend.Name = "mTextBoxSend";
-            this.mTextBoxSend.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.mTextBoxSend.Size = new System.Drawing.Size(405, 582);
-            this.mTextBoxSend.TabIndex = 0;
-            this.mTextBoxSend.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mTextBoxSend_KeyDown);
-            // 
-            // mTextBoxRecv
-            // 
-            this.mTextBoxRecv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mTextBoxRecv.Location = new System.Drawing.Point(0, 0);
-            this.mTextBoxRecv.MaxLength = 0;
-            this.mTextBoxRecv.Multiline = true;
-            this.mTextBoxRecv.Name = "mTextBoxRecv";
-            this.mTextBoxRecv.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.mTextBoxRecv.Size = new System.Drawing.Size(811, 582);
-            this.mTextBoxRecv.TabIndex = 0;
-            this.mTextBoxRecv.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mTextBoxRecv_KeyDown);
-            // 
-            // mTextBoxUrl
-            // 
-            this.mTextBoxUrl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.mTextBoxUrl.Location = new System.Drawing.Point(97, 594);
-            this.mTextBoxUrl.Name = "mTextBoxUrl";
-            this.mTextBoxUrl.Size = new System.Drawing.Size(1011, 21);
-            this.mTextBoxUrl.TabIndex = 1;
-            // 
-            // button4
-            // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Location = new System.Drawing.Point(1114, 593);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(112, 23);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "Do Request";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Window
             // 
@@ -276,14 +166,6 @@
             this.mSplitContainer1.ResumeLayout(false);
             this.mTabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            this.mSplitContainer2.Panel1.ResumeLayout(false);
-            this.mSplitContainer2.Panel1.PerformLayout();
-            this.mSplitContainer2.Panel2.ResumeLayout(false);
-            this.mSplitContainer2.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mSplitContainer2)).EndInit();
-            this.mSplitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -298,13 +180,6 @@
         private System.Windows.Forms.Button mGenFragmentCodeBtn;
         private System.Windows.Forms.TabControl mTabControl;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TextBox mTextBoxUrl;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.SplitContainer mSplitContainer2;
-        private System.Windows.Forms.TextBox mTextBoxSend;
-        private System.Windows.Forms.TextBox mTextBoxRecv;
-        private System.Windows.Forms.ComboBox mHttpMethodSelector;
     }
 }
 
