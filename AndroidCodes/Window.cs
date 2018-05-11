@@ -45,7 +45,7 @@ namespace AndroidCodes
                 List<string> lines = new List<string>();
          
                 XmlDocument xmlDocument = new XmlDocument();
-                xmlDocument.LoadXml(mTextBox1.Text);
+                xmlDocument.LoadXml(mXmlTextBox.Text);
 
                 List<string> imports = new List<string>();
                 XmlHelpers.TraversalXmlForImports(xmlDocument, imports);
@@ -68,7 +68,7 @@ namespace AndroidCodes
                 lines.AddRange(setViews);
                 lines.Add("");
 
-                mGenActivityCodeBtn.Lines = lines.ToArray();
+                mGeneratedCodesTextBox.Lines = lines.ToArray();
             }
             catch (Exception ex)
             {
@@ -83,7 +83,7 @@ namespace AndroidCodes
                 List<string> lines = new List<string>();
 
                 XmlDocument xmlDocument = new XmlDocument();
-                xmlDocument.LoadXml(mTextBox1.Text);
+                xmlDocument.LoadXml(mXmlTextBox.Text);
 
                 List<string> imports = new List<string>();
                 XmlHelpers.TraversalXmlForImports(xmlDocument, imports);
@@ -101,7 +101,7 @@ namespace AndroidCodes
                 lines.AddRange(setViews);
                 lines.Add("");
 
-                mGenActivityCodeBtn.Lines = lines.ToArray();
+                mGeneratedCodesTextBox.Lines = lines.ToArray();
             }
             catch (Exception ex)
             {
@@ -116,7 +116,7 @@ namespace AndroidCodes
                 List<string> lines = new List<string>();
 
                 XmlDocument xmlDocument = new XmlDocument();
-                xmlDocument.LoadXml(mTextBox1.Text);
+                xmlDocument.LoadXml(mXmlTextBox.Text);
 
                 List<string> imports = new List<string>();
                 XmlHelpers.TraversalXmlForImports(xmlDocument, imports);
@@ -139,7 +139,7 @@ namespace AndroidCodes
                 lines.AddRange(setViews);
                 lines.Add("");
 
-                mGenActivityCodeBtn.Lines = lines.ToArray();
+                mGeneratedCodesTextBox.Lines = lines.ToArray();
             }
             catch (Exception ex)
             {
@@ -163,5 +163,59 @@ namespace AndroidCodes
             }
         }
 
+        private List<string> SplitLines(List<string> lines)
+        {
+            List<string> newLines = new List<string>();
+            foreach (string line in lines)
+            {
+                if(line != null && line.Length > 0)
+                {
+                    string[] items = line.Split('\n');
+                    foreach (string item in items)
+                    {
+                        newLines.Add(item);
+                    }
+                }
+            }
+            return newLines;
+        }
+
+        private void mGenBindViewBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                XmlDocument xmlDocument = new XmlDocument();
+                xmlDocument.LoadXml(mXmlTextBox.Text);
+
+                List<string> bindViews = new List<string>();
+                XmlHelpers.TraversalXmlForFindViews(xmlDocument, bindViews, CodeType.BindView);
+
+                List<string> lines = SplitLines(bindViews);
+                mGeneratedCodesTextBox.Lines = lines.ToArray();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace, ex.Message);
+            }
+        }
+
+        private void mGenBindViewR2Btn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                XmlDocument xmlDocument = new XmlDocument();
+                xmlDocument.LoadXml(mXmlTextBox.Text);
+
+                List<string> bindViewR2s = new List<string>();
+                XmlHelpers.TraversalXmlForFindViews(xmlDocument, bindViewR2s, CodeType.BindViewR2);
+
+                List<string> lines = SplitLines(bindViewR2s);
+                mGeneratedCodesTextBox.Lines = lines.ToArray();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace, ex.Message);
+            }
+        }
     }
 }

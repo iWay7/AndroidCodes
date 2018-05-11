@@ -142,6 +142,7 @@ namespace AndroidCodes
             if (androidId == null) return null;
 
             string idToRDotId = MakeResRef(androidId);
+            string idToR2DotId = "R2" + idToRDotId.Substring(1);
             string idToValueName = MakeValueName(androidId, codeType);
             
             if (xmlNode.Name.Equals("merge"))
@@ -158,6 +159,10 @@ namespace AndroidCodes
                         return idToValueName + " = mRootView.findViewById(" + idToRDotId + ");";
                     case CodeType.Adapter:
                         return "View " + idToValueName + " = convertView.findViewById(" + idToRDotId + ");";
+                    case CodeType.BindView:
+                        return "@BindView(" + idToRDotId + ")" + "\n" + "View " + idToValueName + ";";
+                    case CodeType.BindViewR2:
+                        return "@BindView(" + idToR2DotId + ")" + "\n" + "View " + idToValueName + ";";
                 }
             }
             else if (xmlNode.Name.Equals("fragment"))
@@ -185,6 +190,10 @@ namespace AndroidCodes
                         return idToValueName + " = (" + className + ") mRootView.findViewById(" + idToRDotId + ");";
                     case CodeType.Adapter:
                         return className + " " + idToValueName + " = (" + className + ") convertView.findViewById(" + idToRDotId + ");";
+                    case CodeType.BindView:
+                        return "@BindView(" + idToRDotId + ")" + "\n" + className + " " + idToValueName + ";";
+                    case CodeType.BindViewR2:
+                        return "@BindView(" + idToR2DotId + ")" + "\n" + className + " " + idToValueName + ";";
                 }
             }
             else if (xmlNode.Name.Equals("View"))
@@ -197,6 +206,10 @@ namespace AndroidCodes
                         return idToValueName + " = mRootView.findViewById(" + idToRDotId + ");";
                     case CodeType.Adapter:
                         return "View " + idToValueName + " = convertView.findViewById(" + idToRDotId + ");";
+                    case CodeType.BindView:
+                        return "@BindView(" + idToRDotId + ")" + "\n" + "View" + " " + idToValueName + ";";
+                    case CodeType.BindViewR2:
+                        return "@BindView(" + idToR2DotId + ")" + "\n" + "View" + " " + idToValueName + ";";
                 }
             }
             else
@@ -209,6 +222,10 @@ namespace AndroidCodes
                         return idToValueName + " = (" + xmlNode.Name + ") mRootView.findViewById(" + idToRDotId + ");";
                     case CodeType.Adapter:
                         return xmlNode.Name + " " + idToValueName + " = (" + xmlNode.Name + ") convertView.findViewById(" + idToRDotId + ");";
+                    case CodeType.BindView:
+                        return "@BindView(" + idToRDotId + ")" + "\n" + xmlNode.Name + " " + idToValueName + ";";
+                    case CodeType.BindViewR2:
+                        return "@BindView(" + idToR2DotId + ")" + "\n" + xmlNode.Name + " " + idToValueName + ";";
                 }
             }
             return null;

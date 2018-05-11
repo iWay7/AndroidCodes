@@ -9,6 +9,8 @@ namespace AndroidCodes
     {
         Activity,
         Fragment,
-        Adapter
+        Adapter,
+        BindView,
+        BindViewR2
     }
 }
